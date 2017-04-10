@@ -220,7 +220,7 @@ func Dial(nodeAddresses []string, conf BrokerConf) (*Broker, error) {
 	for try := 0; try < conf.DialRetryLimit; try++ {
 		if try > 0 {
 			sleepFor := retry.Duration()
-			log.Debugf("cannot fetch metadata from any connection (try %d, sleep %f)",
+			log.Warningf("cannot fetch metadata from any connection (try %d, sleep %f)",
 				try, sleepFor)
 			time.Sleep(sleepFor)
 		}
